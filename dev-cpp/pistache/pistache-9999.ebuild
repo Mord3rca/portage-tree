@@ -19,7 +19,7 @@ REQUIRED_USE="test? ( rapidjson )"
 
 RDEPEND="
 	deflate? ( sys-libs/zlib )
-	ssl? ( dev-lib/openssl )
+	ssl? ( dev-libs/openssl )
 	rapidjson? ( dev-libs/rapidjson )
 "
 DEPEND="${RDEPEND}"

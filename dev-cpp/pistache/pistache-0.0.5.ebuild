@@ -17,7 +17,7 @@ KEYWORDS="amd64 x86"
 IUSE="-doc -examples ssl -test"
 
 RDEPEND="
-	ssl? ( dev-lib/openssl )
+	ssl? ( dev-libs/openssl )
 "
 DEPEND="${RDEPEND}"
 BDEPEND=""
