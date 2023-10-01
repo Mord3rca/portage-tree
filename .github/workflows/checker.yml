@@ -1,0 +1,17 @@
+name: Checker
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  check-manifest:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: "Checking Ebuild's Manifest"
+      run: |
+        .github/check-manifest.sh
