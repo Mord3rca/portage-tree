@@ -11,11 +11,12 @@ LICENSE="LGPL-3"
 SLOT=0
 KEYWORDS="~amd64 ~x86"
 
-IUSE="-test"
+IUSE="wireshark -test"
 
 RDEPEND="
 	acct-user/openmeat
 	test? ( dev-util/cppunit )
+	wireshark? ( net-analyzer/wireshark )
 "
 DEPEND="${RDEPEND}"
 BDEPEND=""
@@ -23,6 +24,7 @@ BDEPEND=""
 src_configure() {
 	local mycmakeargs=(
 		-DBUILD_TESTS=$(usex test)
+		-DBUILD_DISSECTOR=$(usex wireshark)
 	)
 	cmake_src_configure
 }
