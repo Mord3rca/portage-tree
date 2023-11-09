@@ -11,7 +11,7 @@ LICENSE="LGPL-3"
 SLOT=0
 KEYWORDS="~amd64 ~x86"
 
-IUSE="wireshark -test"
+IUSE="-static -test wireshark"
 
 RDEPEND="
 	acct-user/openmeat
@@ -31,4 +31,9 @@ src_configure() {
 
 src_test() {
 	"${BUILD_DIR}/tests/openmeat_tests" || die "Error while running cppunit tests"
+}
+
+src_install() {
+	cmake_src_install
+	use static || find "${D}" -name '*.a' -exec rm {} \;
 }
